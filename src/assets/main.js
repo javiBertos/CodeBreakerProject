@@ -19,3 +19,12 @@ function setHiddenFields() {
 function setMessage(message) {
     document.getElementById('message').innertHTML(message);
 }
+
+function validateInput (code) {
+    if (code.length !== 4) {
+        setMessage("Guesses must be exactly 4 characters long.");
+        return false;
+    }
+
+    return true;
+}
