@@ -13,7 +13,9 @@ function guess() {
         return false;
     }
 
-    attempt.value += 1;
+    attempt.value = parseInt(attempt.value, 10) + 1;
+
+    console.log(attempt.value);
 
     let userWins = getResults(input.value);
 
@@ -29,7 +31,7 @@ function guess() {
 //implement new functions here
 function setHiddenFields() {
     answer.value = ("0000" + Math.floor(Math.random() * 9999).toString()).slice(-4);
-    attempt.value = 0;
+    attempt.value = parseInt(0, 10);
 }
 
 function setMessage(message) {
