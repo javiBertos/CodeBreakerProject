@@ -78,3 +78,9 @@ function getResults(guess) {
 
     return totalRight === answer.value.length;
 }
+
+function showAnswer(win) {
+    let codeLabel = document.getElementById('code');
+    codeLabel.innerHTML = answer.value;
+    codeLabel.classList.add(win === true ? 'success' : 'failure');
+}
