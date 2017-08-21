@@ -26,11 +26,39 @@ function setMessage(message) {
     document.getElementById('message').innertHTML(message);
 }
 
-function validateInput (code) {
-    if (code.length !== 4) {
+function validateInput (guess) {
+    if (guess.length !== 4) {
         setMessage("Guesses must be exactly 4 characters long.");
         return false;
     }
 
     return true;
+}
+
+function getResults(guess) {
+    let result = document.getElementById('results').innertHTML();
+    result += '<div class="row"><span class="col-md-6">' + guess + '</span><div class="col-md-6">';
+
+    for (let i = 0; i < guess.length; i++) {
+        let found = false;
+
+        for (let j = 0; j < answer.length; j++) {
+            if (guess[i] === answer[j]) {
+                found = true;
+                if (i === j) {
+                    result += '<span class="glyphicon glyphicon-ok"></span>';
+                } else {
+                    result += '<span class="glyphicon glyphicon-transfer"></span>';
+                }
+            }
+        }
+
+        if (!found) {
+            result += '<span class="glyphicon glyphicon-remove"></span>';
+        }
+    }
+
+    result += '</div></div>';
+
+    document.getElementById('results').innertHTML(result);
 }
