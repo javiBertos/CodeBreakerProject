@@ -84,3 +84,8 @@ function showAnswer(win) {
     codeLabel.innerHTML = answer.value;
     codeLabel.classList.add(win === true ? 'success' : 'failure');
 }
+
+function showReplay () {
+    document.getElementById('guessing-div').style.display = "none";
+    document.getElementById('replay-div').style.display = "block";
+}
