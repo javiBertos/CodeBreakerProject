@@ -23,7 +23,7 @@ function setHiddenFields() {
 }
 
 function setMessage(message) {
-    document.getElementById('message').innertHTML(message);
+    document.getElementById('message').innertHTML = message;
 }
 
 function validateInput (guess) {
@@ -36,7 +36,7 @@ function validateInput (guess) {
 }
 
 function getResults(guess) {
-    let result = document.getElementById('results').innertHTML();
+    let result = document.getElementById('results').innertHTML;
     result += '<div class="row"><span class="col-md-6">' + guess + '</span><div class="col-md-6">';
 
     for (let i = 0; i < guess.length; i++) {
@@ -60,5 +60,5 @@ function getResults(guess) {
 
     result += '</div></div>';
 
-    document.getElementById('results').innertHTML(result);
+    document.getElementById('results').innertHTML = result;
 }
