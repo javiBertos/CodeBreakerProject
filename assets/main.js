@@ -36,20 +36,26 @@ function validateInput (guess) {
 }
 
 function getResults(guess) {
+    let totalRight = 0;
     let result = document.getElementById('results').innerHTML;
     result += '<div class="row"><span class="col-md-6">' + guess + '</span><div class="col-md-6">';
+
+    guess = guess.toString();
 
     for (let i = 0; i < guess.length; i++) {
         let found = false;
 
-        for (let j = 0; j < answer.length; j++) {
-            if (guess[i] === answer[j]) {
+        for (let j = 0; j < answer.value.length; j++) {
+            if (guess[i] === answer.value[j]) {
                 found = true;
                 if (i === j) {
+                    totalRight += 1;
                     result += '<span class="glyphicon glyphicon-ok"></span>';
                 } else {
                     result += '<span class="glyphicon glyphicon-transfer"></span>';
                 }
+
+                break;
             }
         }
 
@@ -61,4 +67,6 @@ function getResults(guess) {
     result += '</div></div>';
 
     document.getElementById('results').innerHTML = result;
+
+    return totalRight === answer.value.length;
 }
